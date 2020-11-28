@@ -1,37 +1,33 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const background = '#FDF3EC';
-
+const mainColour = "#0fb9ed";
 
 const PHOTO_WIDTH = Dimensions.get('screen').width / 1.5;
 const PHOTO_Text = Dimensions.get('screen').width / 2;
-const OFFSET = PHOTO_WIDTH;
 
 const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: background,
     fontSize: 30,
     alignItems: 'center',
-    // justifyContent: 'center',
   },
-  header: {
-    fontSize: 30,
-  },
+
   photoDiv: {
-    backgroundColor: 'red',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignContent: 'center',
     justifyContent: 'center',
     padding: 10,
   },
+
   photoView: {
     borderRadius: 32,
     borderWidth: 2,
     width: PHOTO_WIDTH,
     height: PHOTO_WIDTH,
-    backgroundColor: '#aaaaff'
+    backgroundColor: background,
   },
 
   photo: {
@@ -41,6 +37,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: 'black',
   },
+
   photoText: {
     position: 'absolute',
     justifyContent: 'center',
@@ -54,20 +51,35 @@ const styles = StyleSheet.create({
     width: PHOTO_Text * 1.25,
     textAlign: 'center',
   },
+
   container: {
     display: "flex",
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 10,
-    width: PHOTO_WIDTH * 1.1,
-    height: PHOTO_WIDTH * 1.1,
+    width: PHOTO_WIDTH * 1.05,
+    height: PHOTO_WIDTH * 1.05,
     borderRadius: 39,
-    shadowColor: "#000000",
-    shadowOpacity: 0.8,
-    shadowRadius: 35,
-
   },
 
+  button: {
+    borderColor: 'black',
+    borderWidth: 2,
+    borderRadius: 10,
+    padding: 10,
+    backgroundColor: mainColour,
+  },
+
+  footer: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+  },
+
+  footerText: {
+    fontSize: 24,
+    flex: 1
+  },
 });
 
 export default styles;
