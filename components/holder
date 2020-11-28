@@ -1,0 +1,39 @@
+
+
+{/* <FlatList
+  data={photos}
+  renderItem={renderItem}
+  keyExtractor={photo => photo.id}
+  style={{ height: 200 }}
+/> */}
+{/* {photos.map((photo, index) => (
+  <View style={styles.photoDiv}>
+    {/* <Image
+        style={styles.photo}
+        source={photo.url ? {
+          uri: 'https://via.placeholder.com/600/b0f7cc',
+        } : {
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }
+        } /> */}
+    {/* <CachedImage
+      style={{
+        width: Dimensions.get('screen').width,
+        height: Dimensions.get('screen').width,
+      }}
+      source={{
+        uri: 'https://reactnative.dev/img/tiny_logo.png',
+      }}
+    /> */}
+    {/* <Image
+      // isBackground
+      style={{
+        width: 100,
+        height: 100,
+      }}
+      source={{ uri: 'https://reactnative.dev/img/tiny_logo.png', }}
+    />  */}
+
+// {/* <Text>{index}: {photo.url}</Text> */}
+  {/* </View> */}
+{/* // ))} */}
