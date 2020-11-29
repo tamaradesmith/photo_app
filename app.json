@@ -10,7 +10,7 @@
     ],
     "splash": {
       "image": "./assets/splash.png",
-      "backgroundColor": "#FFFAEB"
+      "backgroundColor": "#fff"
     }
   }
 }

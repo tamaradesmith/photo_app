@@ -8,22 +8,24 @@ import { PhotoQuery } from '../js/requests';
 import PhotoDetails from './PhotoDetails';
 import Button from './Button';
 
-
 const PhotoIndex = () => {
 
   const [photos, setPhotos] = useState();
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadPoint, setLoadPoint] = useState(0.5);
+  const [fetching, setFetching] = useState(false);
 
   const loadMore = async () => {
     setIsLoading(true);
-    const getMorePhoto = await PhotoQuery.getMore(page);
-    const newList = [...photos, ...getMorePhoto];
-    setPage(page + 1);
-    setPhotos([...photos, ...getMorePhoto]);
-    setLoadPoint(newList.length / 5);
-    setIsLoading(false);
+    if (!fetching) {
+      setFetching(true);
+      const getMorePhoto = await PhotoQuery.getMore(page);
+      const newList = [...photos, ...getMorePhoto];
+      setPage(page + 1);
+      setPhotos([...photos, ...getMorePhoto]);
+      setIsLoading(false);
+      setFetching(false);
+    }
   };
 
   const handleClick = () => {
@@ -44,12 +46,8 @@ const PhotoIndex = () => {
   useEffect(() => {
     let isCancelled = false;
     const getPhotos = async () => {
-      const photoList = await PhotoQuery.getAll()
-        .catch(error => {
-          console.error(error.message);
-        });
+      const photoList = await PhotoQuery.getAll();
       if (!isCancelled) {
-        console.log("🚀 ~ file: PhotoIndex.js ~ line 53 ~ getPhotos ~ photoList", photoList);
         setPhotos(photoList);
         setPage(page + 1);
       };
@@ -71,7 +69,7 @@ const PhotoIndex = () => {
         renderItem={({ item }) => (
           <PhotoDetails photo={item} />
         )}
-        onEndReachedThreshold={loadPoint}
+        onEndReachedThreshold={10}
         onEndReached={loadMore}
         refreshing={isLoading}
         ListEmptyComponent={<Text>'No Photos'</Text>}
@@ -84,7 +82,7 @@ const PhotoIndex = () => {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>Photo App!</Text>
-        <Button clickAction={handleClick} style={styles.button} />
+        <Button clickAction={handleClick} style={styles.button} buttonText={'Click to Reorder'} />
       </View>
 
     </View>

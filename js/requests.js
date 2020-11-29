@@ -8,7 +8,6 @@ export const PhotoQuery = {
       });
       return res.json();
     } catch (error) {
-      console.log("🚀 ~ file: requests.js ~ line 17 ~ getAll ~ error", error);
       return error;
     }
   },
