@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const background = '#FDF3EC';
+const background = '#FFFAEB';
 const mainColour = "#0fb9ed";
 
 const PHOTO_WIDTH = Dimensions.get('screen').width / 1.5;

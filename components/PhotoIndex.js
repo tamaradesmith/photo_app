@@ -44,8 +44,12 @@ const PhotoIndex = () => {
   useEffect(() => {
     let isCancelled = false;
     const getPhotos = async () => {
-      const photoList = await PhotoQuery.getAll();
+      const photoList = await PhotoQuery.getAll()
+        .catch(error => {
+          console.error(error.message);
+        });
       if (!isCancelled) {
+        console.log("🚀 ~ file: PhotoIndex.js ~ line 53 ~ getPhotos ~ photoList", photoList);
         setPhotos(photoList);
         setPage(page + 1);
       };
@@ -77,13 +81,7 @@ const PhotoIndex = () => {
           </View>
         }
       />
-      {/* <PhotoDetails photo={ {
-    "albumId": 1,
-    "id": 15,
-    "thumbnailUrl": "https://via.placeholder.com/150/f9cee5",
-    "title": "harum dicta similique quis dolore earum ex qui",
-    "url": "https://via.placeholder.com/600/f9cee5",
-  }} /> */}
+
       <View style={styles.footer}>
         <Text style={styles.footerText}>Photo App!</Text>
         <Button clickAction={handleClick} style={styles.button} />

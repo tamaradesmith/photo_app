@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StatusBar } from 'react-native';
 
-import styles from './styles/styles';
+import styles from './styles/styles'
 
 import Photo from './components/PhotoIndex';
 

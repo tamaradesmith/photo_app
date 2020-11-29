@@ -14,7 +14,6 @@ const PhotoDetails = (props) => {
             uri: photo.url,
           }}
         />
-       
         <Text style={styles.photoText}>{photo.title} </Text>
       </View>
     </View>
